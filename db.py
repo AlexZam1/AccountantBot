@@ -59,9 +59,9 @@ class BotDB:
         self.cur = self.conn.cursor()
 
         self.cur.execute(f"""SELECT SUM(amount) 
-        FROM spendings
-        WHERE user_id = {current_user_id}
-        AND date = date('now','localtime');""")
+            FROM spendings
+            WHERE user_id = {current_user_id}
+            AND date = date('now','localtime');""")
         today_expenses = self.cur.fetchone()[0]
         self.conn.commit()
 
